@@ -1,4 +1,5 @@
 *.class
+<<<<<<< HEAD
 /**/bin/**
 /**/.gradle/**
 /**/.settings/**
@@ -6,6 +7,11 @@
 .classpath
 .project
 .springBeans
+=======
+**/bin
+**/.gradle
+**/.settings
+>>>>>>> dono
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
