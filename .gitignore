@@ -1,17 +1,11 @@
 *.class
-<<<<<<< HEAD
-/**/bin/**
-/**/.gradle/**
-/**/.settings/**
-/bin/
 .classpath
 .project
 .springBeans
-=======
-**/bin
-**/.gradle
-**/.settings
->>>>>>> dono
+**/bin/
+**/.gradle/
+**/.settings/
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
