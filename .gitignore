@@ -1,7 +1,11 @@
 *.class
-**/bin/**
-**/.gradle/**
-**/.settings/**
+/**/bin/**
+/**/.gradle/**
+/**/.settings/**
+/bin/
+.classpath
+.project
+.springBeans
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
