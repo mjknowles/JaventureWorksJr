@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Product</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Product Number</th>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product, iStat : ${products}">
+						<td th:text="${iStat.count}"></td>
+						<td th:text="${product.productId}"></td>
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.description}"></td>
+						<td th:text="${product.price}"></td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<a th:href="@{/address/form}">Create Address</a>
+		</div>
+	</body>
+</html>

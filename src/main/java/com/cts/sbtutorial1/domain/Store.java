@@ -75,4 +75,9 @@ public class Store {
 	public void setOwners(Set<Person> owners) {
 		this.owners = owners;
 	}
+	
+	@Override
+	public String toString(){
+		return name;
+	}
 }

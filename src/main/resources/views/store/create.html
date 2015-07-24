@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Store</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/store/save}" th:object="${store}" method="post">
+				<label th:for="${#ids.next('name')}">Name</label>
+				<input type="text" th:field="*{name}"/>
+				<br/>
+				<label th:for="${#ids.next('address')}">Address</label>
+				<select th:field="*{address.id}">
+					<option value="">--</option>
+					<option th:each="address : ${addresses}"
+					 		th:value="${address}" 
+					 		th:text="${address.toString()}"></option>
+				</select>
+				<input type="hidden" th:field="*{id}"/>
+				<br/>
+				<button type="submit">Send</button>
+			</form>
+		
+		
+		</div>
+	</body>
+</html>

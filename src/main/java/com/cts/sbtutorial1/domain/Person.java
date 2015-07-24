@@ -75,4 +75,10 @@ public class Person {
     {  
         this.stores = stores;  
     } 	
+	
+	@Override
+	public String toString(){
+		return firstName + " " + lastName;
+	}
+	
 }

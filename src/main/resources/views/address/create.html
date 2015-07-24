@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Address</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/address/save}" th:object="${address}" method="post">
+				<label th:for="${#ids.next('addressLine1')}">Address Line 1</label>
+				<input type="text" th:field="*{addressLine1}"/>
+				<br/>
+				<label th:for="${#ids.next('addressLine2')}">Address Line 2</label>
+				<input type="text" th:field="*{addressLine2}"/>
+				<br/>
+				<label th:for="${#ids.next('city')}">City</label>
+				<input type="text" th:field="*{city}"/>
+				<br/>
+				<label th:for="${#ids.next('state')}">state</label>
+				<input type="text" th:field="*{state}"/>
+				<br/>
+				<label th:for="${#ids.next('postalCode')}">Postal Code</label>
+				<input type="text" th:field="*{postalCode}"/>
+				<input type="hidden" th:field="*{id}"/>
+				<br/>
+				<button type="submit">Send</button>
+			</form>
+		
+		
+		</div>
+	</body>
+</html>

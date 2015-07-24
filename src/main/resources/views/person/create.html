@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	
+	<head>
+		<title>Person</title>
+
+		
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/person/save}" th:object="${person}" method="post">
+				<label th:for="${#ids.next('firstName')}">First Name</label>
+				<input type="text" th:field="*{firstName}"/>
+				<br/>
+				<label th:for="${#ids.next('lastName')}">Last Name</label>
+				<input type="text" th:field="*{lastName}"/>
+				<br/>
+				<label th:for="${#ids.next('dateOfBirth')}">Date Of Birth</label>
+				<input type="text" th:field="*{dateOfBirth}"/>
+				<input type="hidden" th:field="*{id}"/>
+				<br/>
+				<button type="submit">Send</button>
+			</form>
+		
+			<script type="text/javascript">
+				$(function(){
+					$("#dateOfBirth").datepicker({
+						dateFormat:"mm/dd/yyyy"
+					});
+					
+				});
+			
+			</script>
+		</div>
+	</body>
+</html>

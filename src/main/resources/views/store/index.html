@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Store</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="store, iStat : ${stores}">
+						<td th:text="${iStat.count}"></td>
+						<td th:text="${store.name}"></td>
+						<td th:text="${store.address}"></td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<a th:href="@{/store/form}">Create Store</a>
+		</div>
+	</body>
+</html>
