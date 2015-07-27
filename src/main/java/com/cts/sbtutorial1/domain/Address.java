@@ -1,5 +1,7 @@
 package com.cts.sbtutorial1.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Address")
-public class Address {
+public class Address implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

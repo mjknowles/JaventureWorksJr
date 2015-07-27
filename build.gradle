@@ -52,6 +52,7 @@ dependencies {
     compile('org.springframework:spring-context:4.1.4.RELEASE')
 	compile('org.springframework:spring-context-support:4.1.4.RELEASE')
 	compile("nz.net.ultraq.web.thymeleaf:thmyeleaf-layout-dialect")
+	compile("com.googlecode.ehcache-spring-annotations:ehcache-spring-annotations")
     providedCompile("javax.servlet:javax.servlet-api:3.1.0")
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("org.springframework.boot:spring-boot-starter-test") 

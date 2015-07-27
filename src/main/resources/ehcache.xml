@@ -6,9 +6,19 @@
  
 	<diskStore path="java.io.tmpdir" />
  
-	<cache name="cache" 
-		maxEntriesLocalHeap="10000"
-		maxEntriesLocalDisk="1000" 
+	<cache name="people" 
+		maxEntriesLocalHeap="1000"
+		maxEntriesLocalDisk="100" 
+		eternal="false" 
+		diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="300" timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LFU" 
+		transactionalMode="off">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	<cache name="person" 
+		maxEntriesLocalHeap="1000"
+		maxEntriesLocalDisk="100" 
 		eternal="false" 
 		diskSpoolBufferSizeMB="20"
 		timeToIdleSeconds="300" timeToLiveSeconds="600"
