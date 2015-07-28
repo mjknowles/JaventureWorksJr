@@ -9,7 +9,7 @@
 	
 	<body>
 		<div layout:fragment ="content">
-			<form action="#" th:action="@{/addresses/create}" th:object="${address}" method="post">
+			<form action="#" th:action="@{/addresses/edit/__${address.id}__}" th:object="${address}" method="post">
 				<label th:for="${#ids.next('addressLine1')}">Address Line 1</label>
 				<input type="text" th:field="*{addressLine1}"/>
 				<br/>
