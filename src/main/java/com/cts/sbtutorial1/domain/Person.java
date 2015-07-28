@@ -3,13 +3,15 @@ package com.cts.sbtutorial1.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Person")
-public class Person {
+public class Person implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -75,4 +77,10 @@ public class Person {
     {  
         this.stores = stores;  
     } 	
+	
+	@Override
+	public String toString(){
+		return firstName + " " + lastName;
+	}
+	
 }

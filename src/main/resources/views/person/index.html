@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Person</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Birth Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="person, iStat : ${people}">
+						<td th:text="${iStat.count}"></td>
+						<td th:text="${person.firstName}"></td>
+						<td th:text="${person.lastName}"></td>
+						<td th:text="${person.dateOfBirth}"></td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<a th:href="@{/person/form}">Create Person</a>
+		</div>
+	</body>
+</html>

@@ -1,5 +1,6 @@
 package com.cts.sbtutorial1.domain;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Store")
-public class Store {
+public class Store implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -74,5 +75,10 @@ public class Store {
 
 	public void setOwners(Set<Person> owners) {
 		this.owners = owners;
+	}
+	
+	@Override
+	public String toString(){
+		return name;
 	}
 }

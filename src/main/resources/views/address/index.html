@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Address</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Address Line 1</th>
+						<th>Address Line 2</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Postal Code</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="address, iStat : ${addresses}">
+						<td th:text="${iStat.count}"></td>
+						<td th:text="${address.addressLine1}"></td>
+						<td th:text="${address.addressLine2}"></td>
+						<td th:text="${address.city}"></td>
+						<td th:text="${address.state}"></td>
+						<td th:text="${address.postalCode}"></td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<a th:href="@{/address/form}">Create Address</a>
+		</div>
+	</body>
+</html>
