@@ -7,7 +7,12 @@ import java.math.BigDecimal;
 
 @Entity
 public class Product implements Serializable{
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3421359783296364302L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 

@@ -27,5 +27,12 @@ public class IndexController {
         log.debug("REST request to get all people");
     	return "index";
     }
+    
+    @RequestMapping("/login")
+    public ModelAndView guestLogin(){
+    	ModelAndView mav = new ModelAndView("/shared/login");
+    	return mav;
+    }
+    
    
 }

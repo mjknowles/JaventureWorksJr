@@ -10,7 +10,6 @@ buildscript {
         classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
         classpath("org.flywaydb:flyway-gradle-plugin:3.2.1")
         classpath("javax.servlet:javax.servlet-api:3.1.0")
-        //classpath("net.sf.ehcache:ehcache:2.9.0")
     }
 }
 
@@ -31,7 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+        mavenCentral()
 }
 
 configurations {
@@ -51,8 +50,7 @@ dependencies {
     compile("net.sf.ehcache:ehcache:2.9.0")
     compile('org.springframework:spring-context:4.1.4.RELEASE')
 	compile('org.springframework:spring-context-support:4.1.4.RELEASE')
-	compile("nz.net.ultraq.web.thymeleaf:thmyeleaf-layout-dialect")
-	compile("com.googlecode.ehcache-spring-annotations:ehcache-spring-annotations")
+	compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
     providedCompile("javax.servlet:javax.servlet-api:3.1.0")
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("org.springframework.boot:spring-boot-starter-test") 

@@ -17,6 +17,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "Address")
 public class Address implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7927046061018914000L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
