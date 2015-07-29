@@ -17,6 +17,8 @@
 						<th>City</th>
 						<th>State</th>
 						<th>Postal Code</th>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,11 +29,17 @@
 						<td th:text="${address.city}"></td>
 						<td th:text="${address.state}"></td>
 						<td th:text="${address.postalCode}"></td>
+						<td>
+							<a th:href="@{/addresses/edit/__${address.id}__}">Edit Address</a>
+						</td>
+						<td>
+							<a th:href="@{/addresses/delete/__${address.id}__}">Delete Address</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		
-			<a th:href="@{/address/form}">Create Address</a>
+			<a th:href="@{/addresses/create}">Create Address</a>
 		</div>
 	</body>
 </html>

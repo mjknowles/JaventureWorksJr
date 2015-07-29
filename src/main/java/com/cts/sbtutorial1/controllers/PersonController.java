@@ -15,6 +15,7 @@ import com.cts.sbtutorial1.services.PersonService;
 
 @Controller
 public class PersonController extends BaseController{
+
 	private final Logger log = LoggerFactory.getLogger(PersonController.class);
 	
 	@Inject
@@ -61,4 +62,5 @@ public class PersonController extends BaseController{
     	
     	return mav;
     }
+
 }
