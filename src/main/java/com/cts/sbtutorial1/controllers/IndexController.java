@@ -8,10 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cts.sbtutorial1.domain.Address;
-import com.cts.sbtutorial1.domain.Person;
-import com.cts.sbtutorial1.services.AddressService;
-import com.cts.sbtutorial1.services.PersonService;
+import com.cts.sbtutorial1.services.UserService;
  
 @Controller
 public class IndexController {
@@ -19,20 +16,32 @@ public class IndexController {
 	private final Logger log = LoggerFactory.getLogger(IndexController.class);
 	
 	@Inject
-	private PersonService personService;
+	private UserService userService;
 	
     @RequestMapping("/")
     String index(){
-    	Iterable<Person> people = personService.GetAllPeople();
-        log.debug("REST request to get all people");
-    	return "index";
+    	return "/home/index";
     }
     
     @RequestMapping("/login")
     public ModelAndView guestLogin(){
-    	ModelAndView mav = new ModelAndView("/shared/login");
+    	ModelAndView mav = new ModelAndView("/home/login");
     	return mav;
     }
     
+    
+    @RequestMapping("/register")
+    public ModelAndView guestRegister(String username, String password){
+    	ModelAndView mav = new ModelAndView("redirect:/login");
+    	userService.setDataSource();
+    	
+    	if(!userService.checkIfExists(username)){
+    		userService.createUser(username, password);
+    		return mav;
+    	}
+    	
+    	mav = new ModelAndView("redirect:/?error");
+    	return mav;
+    }
    
 }

@@ -30,7 +30,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().anyRequest().authenticated();
+                .authorizeRequests()
+                .antMatchers("/","/register").permitAll()
+                .antMatchers("/user/**").hasAnyAuthority("ADMIN")
+                .anyRequest().authenticated();
         http
                 .formLogin().failureUrl("/login?error")
                 .defaultSuccessUrl("/person")
@@ -51,10 +54,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
         auth.jdbcAuthentication().dataSource(datasource);
  
-        if(!userDetailsService.userExists("user")) {
+        if(!userDetailsService.userExists("admin")) {
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("USER"));
-            User userDetails = new User("user", encoder.encode("password"), authorities);
+            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+            User userDetails = new User("admin", encoder.encode("Cts!cts@1"), authorities);
  
             userDetailsService.createUser(userDetails);
         }

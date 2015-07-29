@@ -3,32 +3,28 @@
   xmlns:th="http://www.thymeleaf.org"
   layout:decorator="/shared/layout">
 	<head>
-		<title>Store</title>
+		<title>Home</title>
 	</head>
 	
 	<body>
 		<div layout:fragment ="content">
-			<div th:if="${param.nope}">
-			    Username doesn't exist.
-			</div>
 			<table>
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Name</th>
-						<th>Address</th>
+						<th>Username</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="store, iStat : ${stores}">
+					<tr th:each="user, iStat : ${users}">
 						<td th:text="${iStat.count}"></td>
-						<td th:text="${store.name}"></td>
-						<td th:text="${store.address}"></td>
+						<td th:text="${user.userName}"></td>
+						<td><a th:href="@{/user/delete/__${user.userName}__}">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>
-		
-			<a th:href="@{/store/form}">Create Store</a>
+			
 		</div>
 	</body>
 </html>
