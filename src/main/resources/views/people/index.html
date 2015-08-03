@@ -15,6 +15,8 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Birth Date</th>
+						<th>Edit</th>
+						<th>Delete</th>					
 					</tr>
 				</thead>
 				<tbody>
@@ -23,11 +25,17 @@
 						<td th:text="${person.firstName}"></td>
 						<td th:text="${person.lastName}"></td>
 						<td th:text="${person.dateOfBirth}"></td>
+						<td>
+							<a th:href="@{/people/edit/__${person.id}__}">Edit Person</a>
+						</td>
+						<td>
+							<a th:href="@{/people/delete/__${person.id}__}">Delete Person</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		
-			<a th:href="@{/person/form}">Create Person</a>
+			<a th:href="@{/people/create}">Create Person</a>
 		</div>
 	</body>
 </html>

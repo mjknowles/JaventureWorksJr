@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Delete Person</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/people/delete/__${person.id}__}" th:object="${person}" method="post">
+
+				<button type="submit">Send</button>
+			</form>
+		</div>
+	</body>
+</html>

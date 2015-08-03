@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Confirm Delete Store</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/stores/delete/__${store.id}__}" th:object="${store}" method="post">
+				<button type="submit">Send</button>
+			</form>
+		</div>
+	</body>
+</html>

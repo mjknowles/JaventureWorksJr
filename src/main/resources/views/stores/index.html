@@ -14,6 +14,8 @@
 						<th>ID</th>
 						<th>Name</th>
 						<th>Address</th>
+						<th>Edit</th>
+						<th>Delete</th>	
 					</tr>
 				</thead>
 				<tbody>
@@ -21,11 +23,17 @@
 						<td th:text="${iStat.count}"></td>
 						<td th:text="${store.name}"></td>
 						<td th:text="${store.address}"></td>
+						<td>
+							<a th:href="@{/stores/edit/__${store.id}__}">Edit Store</a>
+						</td>
+						<td>
+							<a th:href="@{/stores/delete/__${store.id}__}">Delete Store</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		
-			<a th:href="@{/store/form}">Create Store</a>
+			<a th:href="@{/stores/create}">Create Store</a>
 		</div>
 	</body>
 </html>

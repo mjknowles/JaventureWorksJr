@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Person</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<form action="#" th:action="@{/people/edit/__${person.id}__}" th:object="${person}" method="post">
+				<label>First Name</label>
+				<input type="text" th:field="*{firstName}"/>
+				<br/>
+				<label>Last Name</label>
+				<input type="text" th:field="*{lastName}"/>
+				<br/>
+				<label>DOB</label>
+				<input type="text" th:field="*{dateOfBirth}"/>
+				<br/>
+				<label>Stores</label>
+				<select multiple="multiple" th:field="*{stores}">
+					<option th:each="store : ${allStores}"
+					 		th:value="${store.id}" 
+					 		th:text="${store.name}">
+					 </option>
+				</select>
+				<input type="hidden" th:field="*{id}"/>
+				<br/>
+				<button type="submit">Send</button>
+			</form>
+		</div>
+	</body>
+</html>

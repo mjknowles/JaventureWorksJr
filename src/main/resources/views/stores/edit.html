@@ -9,16 +9,23 @@
 	
 	<body>
 		<div layout:fragment ="content">
-			<form action="#" th:action="@{/store/save}" th:object="${store}" method="post">
-				<label th:for="${#ids.next('name')}">Name</label>
+			<form action="#" th:action="@{/stores/edit/__${store.id}__}" th:object="${store}" method="post">
+				<label>Name</label>
 				<input type="text" th:field="*{name}"/>
 				<br/>
-				<label th:for="${#ids.next('address')}">Address</label>
+				<label>Address</label>
 				<select th:field="*{address.id}">
-					<option value="">--</option>
 					<option th:each="address : ${addresses}"
-					 		th:value="${address}" 
-					 		th:text="${address.toString()}"></option>
+					 		th:value="${address.id}" 
+					 		th:text="${address.toString()}">
+					 </option>
+				</select>
+				<label>Owner(s)</label>
+				<select disabled multiple="multiple" th:field="*{owners}">
+					<option th:each="owner : ${allOwners}"
+					 		th:value="${owner.id}" 
+					 		th:text="${owner.firstName} + ' ' + ${owner.lastName}">
+					 </option>
 				</select>
 				<input type="hidden" th:field="*{id}"/>
 				<br/>

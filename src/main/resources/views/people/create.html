@@ -12,15 +12,23 @@
 	
 	<body>
 		<div layout:fragment ="content">
-			<form action="#" th:action="@{/person/save}" th:object="${person}" method="post">
-				<label th:for="${#ids.next('firstName')}">First Name</label>
+			<form action="#" th:action="@{/people/create}" th:object="${person}" method="post">
+				<label>First Name</label>
 				<input type="text" th:field="*{firstName}"/>
 				<br/>
-				<label th:for="${#ids.next('lastName')}">Last Name</label>
+				<label>Last Name</label>
 				<input type="text" th:field="*{lastName}"/>
 				<br/>
-				<label th:for="${#ids.next('dateOfBirth')}">Date Of Birth</label>
+				<label>Date Of Birth</label>
 				<input type="text" th:field="*{dateOfBirth}"/>
+				<br/>
+				<label>Stores</label>
+				<select multiple="multiple" th:field="*{stores}">
+					<option th:each="store : ${allStores}"
+					 		th:value="${store.id}" 
+					 		th:text="${store.name}">
+					 </option>
+				</select>
 				<input type="hidden" th:field="*{id}"/>
 				<br/>
 				<button type="submit">Send</button>
