@@ -8,6 +8,9 @@
 	
 	<body>
 		<div layout:fragment ="content">
+			<div th:if="${param.nope}">
+			    Username doesn't exist.
+			</div>
 			<table>
 				<thead>
 					<tr>

@@ -21,6 +21,11 @@ import javax.persistence.CascadeType;
 @Entity
 @Table(name = "Store")
 public class Store implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3808229980883154027L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

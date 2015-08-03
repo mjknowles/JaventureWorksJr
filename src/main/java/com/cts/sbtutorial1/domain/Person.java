@@ -12,7 +12,12 @@ import java.util.Set;
 @Entity
 @Table(name = "Person")
 public class Person implements Serializable{
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2950386835913222102L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 

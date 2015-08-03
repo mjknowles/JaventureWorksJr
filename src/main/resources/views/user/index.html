@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="/shared/layout">
+	<head>
+		<title>Home</title>
+	</head>
+	
+	<body>
+		<div layout:fragment ="content">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Username</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user, iStat : ${users}">
+						<td th:text="${iStat.count}"></td>
+						<td th:text="${user.userName}"></td>
+						<td><a th:href="@{/user/delete/__${user.userName}__}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	</body>
+</html>
