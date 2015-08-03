@@ -26,7 +26,7 @@ public class AddressController {
 	
     @RequestMapping(value = {"/", "", "/index"})
     public ModelAndView index(){
-    	ModelAndView mav = new ModelAndView("/address/index");
+    	ModelAndView mav = new ModelAndView("/addresses/index");
     	log.debug("Request to get all addresses.");
     	mav.addObject("addresses",addressService.getAllAddresses());
     	log.debug("Got all addresses.");
@@ -34,10 +34,9 @@ public class AddressController {
     	return mav;
     }
     
-    @RequestMapping(value = "/create",
-    		method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView create(){
-    	ModelAndView mav = new ModelAndView("/address/create");
+    	ModelAndView mav = new ModelAndView("/addresses/create");
      	mav.addObject("address", new AddressDto());
     	return mav;
     }
@@ -58,7 +57,6 @@ public class AddressController {
     	}
     	
     	addressService.saveAddress(model);
-    	address.setId(model.getId());
     	log.debug("Address id " + model.getId() + " has been saved.");
     	
     	return "redirect:/addresses/index";
@@ -67,7 +65,7 @@ public class AddressController {
     @RequestMapping(value = "/edit/{id}",
     		method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable int id){
-    	ModelAndView mav = new ModelAndView("/address/edit");
+    	ModelAndView mav = new ModelAndView("/addresses/edit");
      	mav.addObject("address", addressService.getAddressByID(id));
     	return mav;
     }    
@@ -88,7 +86,6 @@ public class AddressController {
     	}
     	
     	addressService.saveAddress(model);
-    	address.setId(model.getId());
     	log.debug("Address id " + model.getId() + " has been saved.");
     	
     	return "redirect:/addresses/index";
@@ -97,7 +94,7 @@ public class AddressController {
     @RequestMapping(value = "/delete/{id}",
     		method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable int id){
-    	ModelAndView mav = new ModelAndView("/address/delete");
+    	ModelAndView mav = new ModelAndView("/addresses/delete");
      	mav.addObject("address", addressService.getAddressByID(id));
     	return mav;
     }    

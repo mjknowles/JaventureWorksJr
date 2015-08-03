@@ -30,7 +30,7 @@ public class Person implements Serializable{
     @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Owner_Store",
     	joinColumns = @JoinColumn(name="persons_id", referencedColumnName="ID"),
     	inverseJoinColumns = @JoinColumn(name="stores_id", referencedColumnName="ID"))
@@ -76,7 +76,12 @@ public class Person implements Serializable{
 	public void setStores(Set<Store> stores)  
     {  
         this.stores = stores;  
-    } 	
+    } 
+	
+	public void addStore(Store store)
+	{
+		this.stores.add(store);
+	}
 	
 	@Override
 	public String toString(){

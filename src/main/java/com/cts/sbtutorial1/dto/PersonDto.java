@@ -2,11 +2,14 @@ package com.cts.sbtutorial1.dto;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
+
+import com.cts.sbtutorial1.domain.Store;
 
 @Component
 public class PersonDto {
@@ -23,6 +26,16 @@ public class PersonDto {
     
     @NotNull
     private String dateOfBirth;
+
+    private Set<Store> stores;
+    
+	public Set<Store> getStores() {
+		return stores;
+	}
+
+	public void setStores(Set<Store> stores) {
+		this.stores = stores;
+	}
 
 	public Integer getId() {
 		return id;
@@ -56,12 +69,8 @@ public class PersonDto {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
-	@Override
-	public String toString(){
-		return firstName + " " + lastName;
-	}
 	
-	public LocalDate returnLocalBirthDate(){
+	public LocalDate getLocalBirthDate(){
 		LocalDate d = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
 		
 		return d;		

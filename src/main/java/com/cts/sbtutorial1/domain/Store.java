@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import javax.persistence.CascadeType;
+
 @Entity
 @Table(name = "Store")
 public class Store implements Serializable{
@@ -34,7 +36,7 @@ public class Store implements Serializable{
     @OneToMany(mappedBy = "store")
     private Set<Product> products;
     
-    @ManyToMany(mappedBy="stores")
+    @ManyToMany(cascade=CascadeType.ALL, mappedBy="stores")
     private Set<Person> owners = new HashSet<Person>();
     
     public Integer getId() {

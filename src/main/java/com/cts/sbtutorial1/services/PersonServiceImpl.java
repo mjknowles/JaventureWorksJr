@@ -26,7 +26,7 @@ public class PersonServiceImpl implements PersonService {
     
     //Here Cacheable only has a name and generates its own key.
     @Cacheable("people")
-	public List<Person> GetAllPeople(){
+	public List<Person> getAllPeople(){
         log.debug("Service request to get all people");
 		return personRepository.findAll();
 	}

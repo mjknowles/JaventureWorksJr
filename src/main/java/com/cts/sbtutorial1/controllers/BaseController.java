@@ -4,6 +4,7 @@ import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.springframework.web.bind.WebDataBinder;
@@ -25,7 +26,9 @@ public class BaseController {
 		    	if(getValue() == null){
 		    		return "";
 		    	}
-		        return new SimpleDateFormat("MM/dd/yyyy").format((Date) getValue());
+		        	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		        	LocalDate date = (LocalDate)getValue();
+					return date.format(formatter);
 		    }        
 
 		});

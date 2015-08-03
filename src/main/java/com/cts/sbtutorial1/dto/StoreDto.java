@@ -1,11 +1,15 @@
 package com.cts.sbtutorial1.dto;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
 import com.cts.sbtutorial1.domain.Address;
+import com.cts.sbtutorial1.domain.Person;
 
 @Component
 public class StoreDto {
@@ -17,9 +21,17 @@ public class StoreDto {
     private String name;
 
     private Address address;
+        
+    private List<Person> owners;
     
-    private Integer personId;
-    
+	public List<Person> getOwners() {
+		return owners;
+	}
+
+	public void setOwners(List<Person> owners) {
+		this.owners = owners;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -42,14 +54,6 @@ public class StoreDto {
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-    
-	public Integer getPersonId() {
-		return personId;
-	}
-
-	public void setPersonId(Integer personId) {
-		this.personId = personId;
 	}
 
 	@Override

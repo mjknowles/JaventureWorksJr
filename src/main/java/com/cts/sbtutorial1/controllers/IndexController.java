@@ -18,13 +18,8 @@ public class IndexController {
  
 	private final Logger log = LoggerFactory.getLogger(IndexController.class);
 	
-	@Inject
-	private PersonService personService;
-	
     @RequestMapping("/")
     String index(){
-    	Iterable<Person> people = personService.GetAllPeople();
-        log.debug("REST request to get all people");
     	return "index";
     }
    
